@@ -283,7 +283,7 @@
                     const now = new Date();
                     const diff = now - start;
                     const week = Math.ceil(diff / (7 * 24 * 60 * 60 * 1000));
-                    return week > 0 ? (week <= 14 ? week : 14) : 1;
+                    return week > 0 ? week : 1;
                 });
 
                 const currentWeekRange = computed(() => {
