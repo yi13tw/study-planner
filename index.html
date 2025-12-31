@@ -279,13 +279,14 @@
 
                 const scriptURL = 'https://script.google.com/macros/s/AKfycby84Du3hcYo7WdfQ0M3nxBNoXUfBXpQ47BIUsF0l9Zu9Oo5xlibvNFIR5eHRhbwCah3/exec';
 
-                const currentWeekNum = computed(() => {
-                    const start = new Date('2026-01-05');
-                    const now = new Date();
-                    const diff = now - start;
-                    const week = Math.ceil(diff / (7 * 24 * 60 * 60 * 1000));
-                    return week > 0 && week <= 14 ? week : 1;
-                });
+const currentWeekNum = computed(() => {
+    const start = new Date('2025-12-31'); // 修改為今天，以便立即測試
+    const now = new Date();
+    const diff = now - start;
+    const week = Math.ceil(diff / (7 * 24 * 60 * 60 * 1000));
+    // 如果計算結果小於等於 0，則強制顯示第 1 週
+    return week > 0 ? (week <= 14 ? week : 14) : 1;
+});
 
                 const currentWeekRange = computed(() => {
                     const now = new Date();
